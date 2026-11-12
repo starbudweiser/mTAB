@@ -19,6 +19,20 @@ func L(_ key: String, _ args: CVarArg...) -> String {
 
 // [fr, en, es, it]
 private let table: [String: [String]] = [
+    "upd.title": ["Mises à jour", "Updates", "Actualizaciones", "Aggiornamenti"],
+    "upd.auto": ["Installer automatiquement les mises à jour", "Install updates automatically", "Instalar las actualizaciones automáticamente", "Installa automaticamente gli aggiornamenti"],
+    "upd.check": ["Rechercher une mise à jour", "Check for updates", "Buscar actualizaciones", "Cerca aggiornamenti"],
+    "upd.install": ["Installer la version %@", "Install version %@", "Instalar la versión %@", "Installa la versione %@"],
+    "upd.version": ["Version installée : %@", "Installed version: %@", "Versión instalada: %@", "Versione installata: %@"],
+    "upd.checking": ["Recherche en cours…", "Checking…", "Buscando…", "Ricerca in corso…"],
+    "upd.uptodate": ["mTAB est à jour (version %@).", "mTAB is up to date (version %@).", "mTAB está al día (versión %@).", "mTAB è aggiornato (versione %@)."],
+    "upd.available": ["La version %@ est disponible.", "Version %@ is available.", "La versión %@ está disponible.", "La versione %@ è disponibile."],
+    "upd.downloading": ["Téléchargement et installation… l'application va redémarrer.", "Downloading and installing… the app will restart.", "Descargando e instalando… la aplicación se reiniciará.", "Download e installazione… l'app si riavvierà."],
+    "upd.failed": ["Échec de la mise à jour : %@", "Update failed: %@", "Error en la actualización: %@", "Aggiornamento non riuscito: %@"],
+    "upd.err.none": ["Aucune version publiée.", "No published release.", "Ninguna versión publicada.", "Nessuna versione pubblicata."],
+    "upd.err.download": ["Téléchargement impossible.", "Download failed.", "No se pudo descargar.", "Download non riuscito."],
+    "upd.err.signature": ["Signature de la mise à jour invalide.", "Invalid update signature.", "Firma de la actualización no válida.", "Firma dell'aggiornamento non valida."],
+    "upd.err.version": ["La mise à jour n'est pas plus récente que la version installée.", "The update is not newer than the installed version.", "La actualización no es más reciente que la versión instalada.", "L'aggiornamento non è più recente della versione installata."],
     "menu.settings": ["Réglages…", "Settings…", "Ajustes…", "Impostazioni…"],
     "menu.about": ["À propos de mTAB", "About mTAB", "Acerca de mTAB", "Informazioni su mTAB"],
     "menu.quit": ["Quitter mTAB", "Quit mTAB", "Salir de mTAB", "Esci da mTAB"],

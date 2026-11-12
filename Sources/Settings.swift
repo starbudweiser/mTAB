@@ -272,6 +272,7 @@ struct SettingsView: View {
             }
             permRow(L("perm.sc"), L("perm.sc.why"), sc) { CGRequestScreenCaptureAccess(); open("Privacy_ScreenCapture") }
         }
+        Card(title: L("upd.title")) { UpdateSection() }
         Card(title: L("sec.cli"), sub: L("sec.cli.sub")) {
             Text("mtab --list\nmtab --focus <id>").socle(Socle.T.mono).socleValue()
                 .padding(Socle.M.space3).frame(maxWidth: .infinity, alignment: .leading).background(Socle.C.bgSunken)

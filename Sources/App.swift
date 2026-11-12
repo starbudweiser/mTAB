@@ -78,6 +78,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         buildMenu()
         Prefs.shared.d = Prefs.shared.d // applique thème et présence
         Hotkeys.shared.start()
+        Timer.scheduledTimer(withTimeInterval: 600, repeats: true) { _ in MainActor.assumeIsolated { Updater.shared.tick() } }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20) { Updater.shared.tick() }
         swipeMonitor = NSEvent.addGlobalMonitorForEvents(matching: .swipe) { e in
             MainActor.assumeIsolated { if Prefs.shared.d.swipe { Switcher.shared.swipe(e.deltaX) } }
         }
