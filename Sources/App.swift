@@ -48,7 +48,7 @@ final class Presence: NSObject {
         menu.addItem(withTitle: L("menu.about"), action: #selector(about), keyEquivalent: "").target = self
         menu.addItem(.separator())
         menu.addItem(withTitle: L("menu.quit"), action: #selector(quit), keyEquivalent: "q").target = self
-        menu.popUp(positioning: nil, at: NSPoint(x: 0, y: b.isFlipped ? b.bounds.maxY + 4 : -4), in: b)
+        item?.socleShow(menu)   // Socle : menu placé selon l'écran de l'icône (plusieurs écrans)
     }
     @objc func settings() { SettingsWindow.show() }
     @objc func about() { About.show() }

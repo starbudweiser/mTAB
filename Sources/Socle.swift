@@ -621,3 +621,23 @@ struct SoclePopover<Keys: View>: View {
         .overlay(RoundedRectangle(cornerRadius: Socle.M.radiusXl).stroke(Socle.C.border, lineWidth: 1))
     }
 }
+
+// MARK: Menu de la barre de menus (plusieurs écrans)
+
+extension NSStatusItem {
+    /// Ouvre `menu` juste sous l'icône de la barre de menus. À utiliser à la place de `statusItem.menu` et de
+    /// `menu.popUp(positioning:at:in: button)` : avec plusieurs écrans, macOS ouvre alors le menu loin de l'icône ou sur
+    /// le mauvais écran. La position est calculée en coordonnées d'écran à partir de la fenêtre de l'icône (celle de SON
+    /// écran, pas de l'écran actif), puis ramenée dans cet écran.
+    /// Mise en place : `item.menu = nil`, `button.sendAction(on: [.leftMouseUp, .rightMouseUp])`, et dans l'action du
+    /// bouton : `item.socleShow(menu)`.
+    @MainActor func socleShow(_ menu: NSMenu) {
+        guard let button, let w = button.window else { return }
+        let r = w.convertToScreen(button.convert(button.bounds, to: nil))
+        var x = r.minX
+        if let sc = w.screen ?? NSScreen.screens.first(where: { $0.frame.intersects(r) }) {
+            x = min(max(x, sc.frame.minX), sc.frame.maxX - menu.size.width - 4)
+        }
+        menu.popUp(positioning: nil, at: NSPoint(x: x, y: r.minY - 4), in: nil)
+    }
+}
