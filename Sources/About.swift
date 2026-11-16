@@ -46,6 +46,7 @@ enum About {
             label(L("about.version", version, build), secondary: true),
             label(L("about.tagline")),
             label(L("about.authors"), bold: true),
+            label(L("about.collection")),
             label(L("about.license")),
             label(L("about.disclaimer"), secondary: true),
             label(L("about.credit"), secondary: true),
