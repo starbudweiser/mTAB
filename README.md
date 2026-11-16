@@ -8,6 +8,8 @@ mTAB is made by Starbudweiser & Claude Code (Anthropic). Part of the **DESKTOP M
 
 mTAB is inspired by AltTab and is not affiliated with its authors.
 
+![The mTAB window switcher showing six windows with thumbnails, one selected, with a search field on top.](docs/screenshot.png)
+
 ## What it does
 
 Hold a shortcut (by default ⌘⇥) and mTAB shows a switcher with all open windows, not just one entry per app. Pick a window with the keyboard, the mouse or a trackpad swipe, and release to bring it to the front. By default mTAB replaces the system ⌘⇥ switcher and disables it while it is in use; the system shortcuts are restored when you remove the shortcut or quit.
