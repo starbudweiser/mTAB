@@ -5,14 +5,26 @@ import SwiftUI
 
 @MainActor
 enum Demo {
-    private static let items: [(String, String, String, NSColor)] = [
-        ("Carnet", "Plan de tournage", "note.text", NSColor(srgbRed: 0.98, green: 0.75, blue: 0.14, alpha: 1)),
-        ("Éditeur", "rapport-trimestriel.md", "doc.plaintext", NSColor(srgbRed: 0.22, green: 0.74, blue: 0.97, alpha: 1)),
-        ("Navigateur", "Documentation — Mise en route", "globe", NSColor(srgbRed: 0.29, green: 0.87, blue: 0.5, alpha: 1)),
-        ("Terminal", "build — 12 tests réussis", "terminal", NSColor(srgbRed: 0.6, green: 0.6, blue: 0.65, alpha: 1)),
-        ("Photos", "Vacances en Bretagne", "photo", NSColor(srgbRed: 0.97, green: 0.44, blue: 0.44, alpha: 1)),
-        ("Messages", "Équipe projet", "bubble.left.fill", NSColor(srgbRed: 0.49, green: 0.83, blue: 0.99, alpha: 1)),
+    // Noms et titres fictifs, dans les 4 langues [fr, en, es, it].
+    private static let texts: [[[String]]] = [
+        [["Carnet", "Notes", "Notas", "Note"], ["Plan de tournage", "Shooting plan", "Plan de rodaje", "Piano di riprese"]],
+        [["Éditeur", "Editor", "Editor", "Editor"], ["rapport-trimestriel.md", "quarterly-report.md", "informe-trimestral.md", "rapporto-trimestrale.md"]],
+        [["Navigateur", "Browser", "Navegador", "Browser"], ["Docs — Mise en route", "Docs — Quick start", "Docs — Primeros pasos", "Docs — Introduzione"]],
+        [["Terminal", "Terminal", "Terminal", "Terminale"], ["build — réussi", "build — passed", "build — superado", "build — superato"]],
+        [["Photos", "Photos", "Fotos", "Foto"], ["Vacances en Bretagne", "Summer in Brittany", "Vacaciones en Bretaña", "Vacanze in Bretagna"]],
+        [["Messages", "Messages", "Mensajes", "Messaggi"], ["Équipe projet", "Project team", "Equipo del proyecto", "Team di progetto"]],
     ]
+    private static let looks: [(String, NSColor)] = [
+        ("note.text", NSColor(srgbRed: 0.98, green: 0.75, blue: 0.14, alpha: 1)),
+        ("doc.plaintext", NSColor(srgbRed: 0.22, green: 0.74, blue: 0.97, alpha: 1)),
+        ("globe", NSColor(srgbRed: 0.29, green: 0.87, blue: 0.5, alpha: 1)),
+        ("terminal", NSColor(srgbRed: 0.6, green: 0.6, blue: 0.65, alpha: 1)),
+        ("photo", NSColor(srgbRed: 0.97, green: 0.44, blue: 0.44, alpha: 1)),
+        ("bubble.left.fill", NSColor(srgbRed: 0.49, green: 0.83, blue: 0.99, alpha: 1)),
+    ]
+    private static var items: [(String, String, String, NSColor)] {
+        texts.indices.map { (texts[$0][0][Lang.index], texts[$0][1][Lang.index], looks[$0].0, looks[$0].1) }
+    }
 
     private static func icon(_ symbol: String, _ color: NSColor) -> NSImage {
         let img = NSImage(size: NSSize(width: 128, height: 128), flipped: false) { r in
