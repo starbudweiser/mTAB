@@ -102,11 +102,9 @@ final class Switcher {
     /// Affiche le sélecteur pour une liste de fenêtres ; `demo` : aperçus fournis, aucune capture ni réglage lu au clavier.
     func present(_ wins: [WinInfo], _ s: Shortcut, reverse: Bool, demoThumbs: [CGWindowID: NSImage]? = nil) {
         let mouse = NSEvent.mouseLocation
-        let primaryH = NSScreen.screens[0].frame.height
         let mouseScreen = NSScreen.screens.first { NSMouseInRect(mouse, $0.frame, false) } ?? NSScreen.screens[0]
-        // écran de la fenêtre active (sinon celui du pointeur)
-        var screen = mouseScreen
-        if let f = wins.first?.frame, let sc = NSScreen.screens.first(where: { $0.frame.contains(CGPoint(x: f.midX, y: primaryH - f.midY)) }) { screen = sc }
+        // écran du pointeur (celui que l'on regarde) ; la fenêtre active ne décide plus, elle pouvait toujours tomber sur le même écran
+        let screen = mouseScreen
         let p = Prefs.shared.d
         model.all = wins; model.query = ""; model.thumbs = demoThumbs ?? Thumbs.shared.cache.filter { c in wins.contains { $0.id == c.key } }
         model.style = p.style; model.size = p.size; model.searchEnabled = p.search; model.searching = false
