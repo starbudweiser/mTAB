@@ -80,7 +80,7 @@ struct Badges: View {
             if w.minimized { pill(L("badge.min"), Socle.C.textMuted) }
             if w.hidden { pill(L("badge.hidden"), Socle.C.textMuted) }
             if w.fullscreen { pill(L("badge.full"), Socle.C.textMuted) }
-            if !w.onCurrentSpace { pill(w.spaceNumber.map { L("badge.space", $0) } ?? "Space", Socle.C.accentText) }
+            if !w.onCurrentSpace { pill(w.spaceNumber.map { L("badge.space", $0) } ?? L("badge.space.unknown"), Socle.C.accentText) }
         }
     }
     private func pill(_ t: String, _ c: Color) -> some View {
