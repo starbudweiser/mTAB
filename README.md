@@ -66,3 +66,9 @@ mTAB est réalisé par Starbudweiser & Claude Code (Anthropic) et fait partie du
 Fonctions : raccourcis multiples avec filtres (applis, Spaces, écrans, fenêtres réduites ou masquées), styles vignettes / icônes / titres, recherche, actions sur la fenêtre sélectionnée (fermer, réduire, plein écran, quitter, masquer), balayage à trois doigts, exceptions par appli, icône de barre de menus ou Dock, lancement à l'ouverture de session, ligne de commande (`mtab --list`, `mtab --focus <id>`), interface en 4 langues et mise à jour automatique.
 
 Configuration requise : macOS 14 ou plus récent, Apple Silicon ; autorisations Accessibilité et Enregistrement de l'écran. Installation : télécharger le zip depuis la page [Releases](https://github.com/starbudweiser/mTAB/releases), déplacer `mTAB.app` dans Applications. Application signée et notarisée.
+
+## Support / Soutenir
+
+This app is free. If it is useful to you, you can support the project (optional, no reward expected): [GitHub Sponsors](https://github.com/sponsors/starbudweiser).
+
+Cette appli est gratuite. Si elle vous est utile, vous pouvez soutenir le projet (facultatif, sans contrepartie) : [GitHub Sponsors](https://github.com/sponsors/starbudweiser).
